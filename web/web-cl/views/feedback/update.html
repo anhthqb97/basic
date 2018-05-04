@@ -1,0 +1,24 @@
+<div>
+    <h1>FeedBack-ud</h1>
+
+    <p>{{ message }}</p>
+    <form role="form" name="myForm">
+        <div class= "form-group" ng-class="{error: myForm.email.$invalid}">
+            <label> Email </label>
+            <div>
+            <input name="email" ng-model="feedback.email" value="" type= "text" class= "form-control" placeholder="Email" required/>
+            </div>
+        </div>
+        <div class= "form-group">
+            <label> Content </label>
+            <div>
+            <textarea name="contact" ng-model="feedback.contact" value="" class= "form-control" placeholder= "Content"></textarea>
+            </div>
+        </div>
+
+        <a href="/web-cl#!/feedback/index" class="btn btn-default">Cancel</a> 
+        <button ng-click="updateFeedBacks(feedback)"
+                ng-disabled="isClean() || myForm.$invalid"
+                type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div> 

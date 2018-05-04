@@ -1,0 +1,26 @@
+<div>
+    <h1>FeedBack</h1>
+
+    <p>{{ message }}</p>
+    <form role="form" name="myForm">
+        <div class= "form-group" ng-class="{error: myForm.title.$invalid}">
+            <label> Email </label>
+            <div>
+            <input name="email" ng-model="feedback.email" type= "text" class= "form-control" placeholder="Email" required/>
+            <span ng-show="myForm.email.$dirty && myForm.email.$invalid" class="help-inline">Email Required</span>
+            </div>
+        </div>
+        <div class= "form-group">
+            <label> Content </label>
+            <div>
+            <input name="contact" ng-model="feedback.contact" type= "text" class= "form-control" placeholder="Content" required/>
+            <span ng-show="myForm.contact.$dirty && myForm.contact.$invalid" class="help-inline">Contact Required</span>
+            </div>
+        </div>
+        <a href="/web-cl#!/feedback/index" class="btn btn-default">Cancel</a>
+
+        <button ng-click="createFeedBacks(feedback)" 
+                ng-disabled="myForm.$invalid"
+                type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
